@@ -38,10 +38,23 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
             Yii::$app->user->isGuest ?
-            ['label' => 'Sign in', 'url' => ['/user/security/login']] :
-            ['label' => 'Sign out (' . Yii::$app->user->identity->username . ')',
-                'url' => ['/user/security/logout'],
-                'linkOptions' => ['data-method' => 'post']],
+            ['label' => 'Sign in', 'url' => ['/user/security/login']]:
+            ['label' => Yii::$app->user->identity->username,
+                'items' => [
+                    [
+                       'label' => 'My Profile',
+                       'url' => ['/user/profile/show', 'id' => Yii::$app->user->id]
+                    ],
+                    [
+                       'label' => 'Settings',
+                       'url' => ['/user/settings/profile', 'id' => Yii::$app->user->id]],
+                    [
+                       'label' => 'Logout',
+                       'url' => ['/user/security/logout'],
+                       'linkOptions' => ['data-method' => 'post'],
+                    ],
+                ],
+            ],
             ['label' => 'Register', 'url' => ['/user/registration/register'], 'visible' => Yii::$app->user->isGuest]
         ],
     ]);

@@ -12,13 +12,13 @@ $config = [
             'enableUnconfirmedLogin' => true,
             'confirmWithin' => 21600,
             'cost' => 12,
-            'admins' => ['xharly8'],
+            'admins' => ['xharly8', 'Jomari', 'Fede'],
             'mailer' => [
                 'sender'                => 'meneamedonana@gmail.com', // or ['no-reply@myhost.com' => 'Sender name']
-                'welcomeSubject'        => 'Welcome subject',
-                'confirmationSubject'   => 'Confirmation subject',
-                'reconfirmationSubject' => 'Email change subject',
-                'recoverySubject'       => 'Recovery subject',
+                'welcomeSubject'        => 'Bienvenido a Menéame Doñana',
+                'confirmationSubject'   => 'Mensaje de Confirmación',
+                'reconfirmationSubject' => 'Cambio de Email',
+                'recoverySubject'       => 'Recuperación de Contraseña',
             ],
         ],
     ],
@@ -29,6 +29,13 @@ $config = [
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
+        ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@dektrium/user/views' => '@app/views/user'
+                ],
+            ],
         ],
         // 'user' => [
         //     'identityClass' => 'app\models\User',
@@ -72,6 +79,7 @@ $config = [
         */
     ],
     'params' => $params,
+    'language' => 'es_ES',
 ];
 
 if (YII_ENV_DEV) {
