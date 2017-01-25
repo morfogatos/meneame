@@ -33,7 +33,7 @@ $config = [
         'view' => [
             'theme' => [
                 'pathMap' => [
-                    '@dektrium/user/views' => '@app/views/user'
+                    '@dektrium/user/views' => '@app/views'
                 ],
             ],
         ],
