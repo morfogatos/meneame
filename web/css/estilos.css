@@ -91,3 +91,21 @@
     width: 25px;
     height: 25px;
 }
+
+.avatar {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.botonCambiar {
+    position: absolute;
+    margin-left: 20%;
+}
+
+.imagen {
+    margin-left: 10px;
+}

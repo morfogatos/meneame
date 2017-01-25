@@ -25,6 +25,7 @@ $config = [
             ],
             'controllerMap' => [
                 'profile' => 'app\controllers\user\ProfileController',
+                'settings' => 'app\controllers\user\SettingsController',
             ],
             'modelMap' => [
                 'Profile' => 'app\models\Profile',
