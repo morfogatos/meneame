@@ -24,12 +24,12 @@
 
 .hovereffect img {
   display: block;
-  position: relative;
+  /*position: relative;*/
   -webkit-transition: all 0.4s cubic-bezier(0.88,-0.99, 0, 1.81);
   transition: all 0.4s cubic-bezier(0.88,-0.99, 0, 1.81);
 }
 
-.hovereffect h2 {
+/*.hovereffect h2 {
   text-transform: uppercase;
   color: #fff;
   text-align: center;
@@ -42,7 +42,7 @@
   -webkit-transition: all 0.4s cubic-bezier(0.88,-0.99, 0, 1.81);
   transition: all 0.4s cubic-bezier(0.88,-0.99, 0, 1.81);
   padding: 10px;
-}
+}*/
 
 .hovereffect a.info {
   text-decoration: none;
@@ -55,7 +55,7 @@
   filter: alpha(opacity=0);
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
-  margin: 50px 0 0;
+  margin: 40px 0 0;
   padding: 7px 14px;
 }
 
@@ -85,4 +85,9 @@
 .hovereffect:hover a.info {
   -webkit-transition-delay: .2s;
   transition-delay: .2s;
+}
+
+.little {
+    width: 25px;
+    height: 25px;
 }

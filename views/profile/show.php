@@ -10,6 +10,7 @@
  */
 
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 /**
  * @var \yii\web\View $this
@@ -22,14 +23,17 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6">
         <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="hovereffect">
-                    <?= Html::img($profile->getAvatarUrl(230), [
-                        'class' => 'img-responsive',
+                    <?= Html::img($profile->avatar, [
+                        'class' => 'img-thumbnail',
                         'alt' => $profile->user->username,
                     ]) ?>
                     <div class="overlay">
-                       <a class="info" href="#">Cambiar avatar</a>
+                        <a class="upload info" href="#">Cambiar avatar</a>
+                        <?php $form = ActiveForm::begin() ?>
+                            <?= $form->field($model, 'imageFile')->fileInput(['style' => 'visibility: hidden', 'label' => 'none']) ?>
+                        <?php ActiveForm::end() ?>
                     </div>
                 </div>
             </div>
@@ -59,6 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <p><?= Html::encode($profile->bio) ?></p>
                 <?php endif; ?>
             </div>
+
         </div>
     </div>
 </div>
