@@ -8,6 +8,7 @@ use app\models\EntradaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\data\ActiveDataProvider;
 
 /**
  * EntradasController implements the CRUD actions for Entrada model.
@@ -36,7 +37,12 @@ class EntradasController extends Controller
     public function actionIndex()
     {
         $searchModel = new EntradaSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = new ActiveDataProvider([
+            'query' => Entrada::find()->orderBy(['created_at' => SORT_DESC]),
+            'pagination' => [
+                'pageSize' => 10,
+            ]
+        ]);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
