@@ -18,8 +18,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'texto')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
     <?= $form->field($model, 'categoria_id')->textInput() ?>
 
     <div class="form-group">

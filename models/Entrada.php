@@ -36,11 +36,12 @@ class Entrada extends \yii\db\ActiveRecord
         return [
             [['url', 'titulo', 'texto', 'categoria_id'], 'required'],
             [['created_at'], 'safe'],
-            [['categoria_id'], 'integer'],
+            [['usuario_id', 'categoria_id'], 'integer'],
             [['url'], 'string', 'max' => 255],
             [['titulo'], 'string', 'max' => 120],
             [['texto'], 'string', 'max' => 550],
             [['categoria_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categoria::className(), 'targetAttribute' => ['categoria_id' => 'id']],
+            [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['usuario_id' => 'id']],
         ];
     }
 
@@ -56,7 +57,16 @@ class Entrada extends \yii\db\ActiveRecord
             'texto' => 'Texto',
             'created_at' => 'Created At',
             'categoria_id' => 'Categoria ID',
+            'usuario_id' => 'Usuario ID',
         ];
+    }
+
+    public function beforeSave($insert = true)
+    {
+        if ($insert) {
+            $this->usuario_id = Yii::$app->user->id;
+        }
+        return parent::beforeSave($insert);
     }
 
     /**
@@ -88,6 +98,6 @@ class Entrada extends \yii\db\ActiveRecord
      */
     public function getUsuario()
     {
-        return $this->hasMany(User::className(), ['user_id' => 'id'])->inverseOf('entradas');
+        return $this->hasOne(User::className(), ['id' => 'usuario_id'])->inverseOf('entradas');
     }
 }

@@ -5,6 +5,9 @@ create table categorias (
     nombre  varchar(20) not null
 );
 
+insert into categorias (nombre)
+    values ('Cultura'), ('Deporte'), ('Política'), ('Actualidad'), ('Videojuegos');
+
 drop table if exists entradas cascade;
 
 create table entradas (
