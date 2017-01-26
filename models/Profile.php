@@ -11,6 +11,6 @@ class Profile extends BaseProfile
     {
         $uploads = Yii::getAlias('@uploads');
         $ruta = "$uploads/{$this->user_id}.jpg";
-        return file_exists($ruta) ? "/$ruta" : "/$uploads/default.png";
+        return file_exists($ruta) ? "/$ruta" : "/$uploads/default.jpg";
     }
 }

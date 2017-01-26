@@ -28,7 +28,7 @@ class UploadForm extends Model
             $nombre = Yii::getAlias('@uploads/')
                 . \Yii::$app->user->id . '.' . $this->imageFile->extension;
             $this->imageFile->saveAs($nombre);
-            Image::thumbnail($nombre, 230, 230)
+            Image::thumbnail($nombre, 225, 225)
                 ->save($nombre, ['quality' => 50]);
             return true;
         } else {

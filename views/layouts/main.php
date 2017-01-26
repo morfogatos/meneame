@@ -29,25 +29,32 @@ AppAsset::register($this);
     NavBar::begin([
         'brandLabel' => 'Menéame',
         'brandUrl' => Yii::$app->homeUrl,
+        'brandOptions' => [
+            'class' => 'blanco'
+        ],
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-inverse navbar-fixed-top fondoNav',
         ],
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
             Yii::$app->user->isGuest ?
-            ['label' => 'Sign in', 'url' => ['/user/security/login']]:
-            ['label' => Yii::$app->user->identity->username,
+            ['label' => 'Sign in', 'url' => ['/user/security/login'], 'linkOptions' => ['class' => 'blanco']]:
+            [
+                'label' => Html::img(Yii::getAlias('@uploads/') . '1.jpg', ['class' => 'img-rounded little']),
+                'url' => ['/user/profile/show', 'id' => Yii::$app->user->id],
+                'encode' => false,
                 'items' => [
                     [
-                       'label' => 'My Profile',
-                       'url' => ['/user/profile/show', 'id' => Yii::$app->user->id]
+                       'label' => 'Mi Perfil',
+                       'url' => ['/user/profile/show', 'id' => Yii::$app->user->id],
                     ],
                     [
-                       'label' => 'Settings',
-                       'url' => ['/user/settings/profile', 'id' => Yii::$app->user->id]],
+                       'label' => 'Configuración',
+                       'url' => ['/user/settings/profile', 'id' => Yii::$app->user->id]
+                    ],
+                    '<li class="divider"></li>',
                     [
                        'label' => 'Logout',
                        'url' => ['/user/security/logout'],
@@ -55,7 +62,7 @@ AppAsset::register($this);
                     ],
                 ],
             ],
-            ['label' => 'Register', 'url' => ['/user/registration/register'], 'visible' => Yii::$app->user->isGuest]
+            ['label' => 'Register', 'url' => ['/user/registration/register'], 'linkOptions' => ['class' =>'blanco'],'visible' => Yii::$app->user->isGuest]
         ],
     ]);
     NavBar::end();
