@@ -47,8 +47,16 @@ class Etiqueta extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEntradasEtiquetas()
+    public function getEntradaEtiquetas()
     {
-        return $this->hasMany(EntradasEtiquetas::className(), ['etiqueta_id' => 'id'])->inverseOf('etiqueta');
+        return $this->hasMany(EntradaEtiqueta::className(), ['etiqueta_id' => 'id'])->inverseOf('etiqueta');
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEntradas()
+    {
+        return $this->hasMany(Entrada::className(), ['id' => 'entrada_id'])->via('entradaEtiquetas');
     }
 }

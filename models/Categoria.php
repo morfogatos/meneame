@@ -9,6 +9,8 @@ use Yii;
  *
  * @property integer $id
  * @property string $nombre
+ *
+ * @property Entradas[] $entradas
  */
 class Categoria extends \yii\db\ActiveRecord
 {
@@ -40,5 +42,13 @@ class Categoria extends \yii\db\ActiveRecord
             'id' => 'ID',
             'nombre' => 'Nombre',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEntradas()
+    {
+        return $this->hasMany(Entrada::className(), ['categoria_id' => 'id'])->inverseOf('categoria');
     }
 }

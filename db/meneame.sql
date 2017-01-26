@@ -1,3 +1,10 @@
+drop table if exists categorias cascade;
+
+create table categorias (
+    id      bigserial   constraint pk_categorias primary key,
+    nombre  varchar(20) not null
+);
+
 drop table if exists entradas cascade;
 
 create table entradas (
@@ -5,18 +12,15 @@ create table entradas (
     url          varchar(255)   not null,
     titulo       varchar(120)   not null,
     texto        varchar(550)   not null,
+    usuario_id   integer        not null constraint fk_entradas_user
+                                references public.user(id)
+                                on delete no action on update cascade,
     created_at   timestamp with time zone not null default current_timestamp,
     categoria_id bigint         not null constraint fk_entradas_categorias
                                 references categorias(id)
                                 on delete no action on update cascade
 );
 
-drop table if exists categorias cascade;
-
-create table categorias (
-    id      bigserial   constraint pk_categorias primary key,
-    nombre  varchar(20) not null
-);
 
 drop table if exists etiquetas cascade;
 
