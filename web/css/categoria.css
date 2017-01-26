@@ -1,0 +1,28 @@
+table, td, th {
+    border: 1px solid black;
+    text-align: center;
+    font-size: 35px;
+}
+
+th:hover {
+    background-color: rgb(73, 73, 73);
+}
+
+td:hover {
+    background-color: rgb(73, 73, 73);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    text-align: center;
+}
+
+table tr td a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
