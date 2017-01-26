@@ -10,6 +10,7 @@
  */
 
 use yii\helpers\Html;
+use yii\widgets\ListView;
 use yii\widgets\ActiveForm;
 
 /**
@@ -65,5 +66,16 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
 
         </div>
+        <?= ListView::widget([
+            'dataProvider' => $dataProvider,
+            'itemOptions' => ['class' => 'item'],
+            'options' => [
+                'tag' => 'div',
+                'class' => 'list-wrapper',
+                'id' => 'list-wrapper',
+            ],
+            'layout' => "{items}\n{pager}",
+            'itemView' => '../entradas/_view.php',
+        ]) ?>
     </div>
 </div>

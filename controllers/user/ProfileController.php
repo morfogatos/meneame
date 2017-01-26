@@ -2,6 +2,7 @@
 
 namespace app\controllers\user;
 
+use app\models\EntradaSearch;
 use dektrium\user\controllers\ProfileController as BaseProfileController;
 use yii\web\NotFoundHttpException;
 use app\models\UploadForm;
@@ -22,6 +23,8 @@ class ProfileController extends BaseProfileController
 
     public function actionShow($id)
     {
+        $searchModel = new EntradaSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $model = new UploadForm;
 
         if (Yii::$app->request->isPost) {
@@ -38,6 +41,8 @@ class ProfileController extends BaseProfileController
         return $this->render('show', [
             'profile' => $profile,
             'model' => $model,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 }
