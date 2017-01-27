@@ -1,10 +1,7 @@
 <?php
 
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\helpers\Html;
 use yii\widgets\ListView;
-use yii\widgets\Breadcrumbs;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\EntradaSearch */
@@ -17,6 +14,12 @@ $this->title = 'Entradas';
     <p>
         <?= Html::a('ENVIAR ENTRADA', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+    <?php if ($titulo !== null) {
+    ?>
+        <p>Buscando entradas por título: <?= $titulo ?></p>
+    <?php
+
+} ?>
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'itemOptions' => ['class' => 'item'],

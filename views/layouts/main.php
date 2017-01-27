@@ -6,6 +6,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\widgets\ActiveForm;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
@@ -65,6 +66,14 @@ AppAsset::register($this);
             ['label' => 'Registrarse', 'url' => ['/user/registration/register'], 'linkOptions' => ['class' =>'blanco'],'visible' => Yii::$app->user->isGuest]
         ],
     ]);
+    $form = ActiveForm::begin(['action' =>  ['entradas/search'], 'method' => 'get', 'options' => ['class' => 'navbar-form','role' => 'search']]);?>
+        <div class="input-group">
+            <div class="input-group-btn">
+                <input type="text" class="form-control" placeholder="Search" name="q">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+    <?php ActiveForm::end();
     NavBar::end();
     NavBar::begin([
         'options' => [
