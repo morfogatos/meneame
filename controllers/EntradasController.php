@@ -46,7 +46,7 @@ class EntradasController extends Controller
                     [
                         'allow' => true,
                         'actions' => ['delete'],
-                        'roles' => ['@'],
+                        'roles' => ['@', 'admin'],
                         'matchCallback' => function ($rule, $action) {
                             return Entrada::findOne(Yii::$app->request->get('id'))->usuario_id == Yii::$app->user->id;
                         },
