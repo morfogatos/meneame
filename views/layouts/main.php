@@ -66,6 +66,22 @@ AppAsset::register($this);
         ],
     ]);
     NavBar::end();
+    NavBar::begin([
+        'options' => [
+            'class' => 'navbar-inverse navbar-fixed-lower lower',
+        ],
+    ]);
+    echo Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-left'],
+        'items' => [
+            ['label' => 'Cultura', 'url' => ['/entradas/index', 'categoria_id' => 1], 'linkOptions' => ['class' => 'blanco']],
+            ['label' => 'Deporte', 'url' => ['/entradas/index', 'categoria_id' => 2], 'linkOptions' => ['class' => 'blanco']],
+            ['label' => 'Política', 'url' => ['/entradas/index', 'categoria_id' => 3], 'linkOptions' => ['class' => 'blanco']],
+            ['label' => 'Actualidad', 'url' => ['/entradas/index', 'categoria_id' => 4], 'linkOptions' => ['class' => 'blanco']],
+            ['label' => 'Videojuegos', 'url' => ['/entradas/index', 'categoria_id' => 5], 'linkOptions' => ['class' => 'blanco']],
+        ],
+    ]);
+    NavBar::end();
     ?>
 
     <div class="container">

@@ -96,6 +96,20 @@
     /*background-color: #EE9555;*/
     background-color: #4358E4;
 }
+.lower {
+    top: 50px;
+    min-height: 0px !important;
+    max-height: 28px !important;
+}
+
+.lower li a {
+    padding-top: 4px;
+}
+
+.lower .active > a{
+    background-color: transparent !important;
+    text-shadow: 1px 1px 1px #4358E4 !important;
+}
 
 .blanco, .blanco a {
     color: white !important;

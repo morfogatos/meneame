@@ -35,15 +35,24 @@ class EntradasController extends Controller
      * Lists all Entrada models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($categoria_id = null)
     {
         $searchModel = new EntradaSearch();
-        $dataProvider = new ActiveDataProvider([
-            'query' => Entrada::find()->orderBy(['created_at' => SORT_DESC]),
-            'pagination' => [
-                'pageSize' => 10,
-            ]
-        ]);
+        if ($categoria_id != null) {
+            $dataProvider = new ActiveDataProvider([
+                'query' => Entrada::find()->where(['categoria_id' => $categoria_id])->orderBy(['created_at' => SORT_DESC]),
+                'pagination' => [
+                    'pageSize' => 10,
+                ]
+            ]);
+        } else {
+            $dataProvider = new ActiveDataProvider([
+                'query' => Entrada::find()->orderBy(['created_at' => SORT_DESC]),
+                'pagination' => [
+                    'pageSize' => 10,
+                ]
+            ]);
+        }
 
         return $this->render('index', [
             'searchModel' => $searchModel,

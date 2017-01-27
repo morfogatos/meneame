@@ -1,7 +1,10 @@
 <?php
 
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
 use yii\helpers\Html;
 use yii\widgets\ListView;
+use yii\widgets\Breadcrumbs;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\EntradaSearch */
@@ -10,7 +13,6 @@ use yii\widgets\ListView;
 $this->title = 'Entradas';
 ?>
 <div class="entrada-index">
-
 
     <p>
         <?= Html::a('ENVIAR ENTRADA', ['create'], ['class' => 'btn btn-success']) ?>
