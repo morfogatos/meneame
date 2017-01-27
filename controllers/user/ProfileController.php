@@ -44,10 +44,13 @@ class ProfileController extends BaseProfileController
             throw new NotFoundHttpException();
         }
 
+        $suPerfil = Yii::$app->user->id === $profile->user_id;
+
         return $this->render('show', [
             'profile' => $profile,
             'model' => $model,
             'dataProvider' => $dataProvider,
+            'suPerfil' => $suPerfil,
         ]);
     }
 }

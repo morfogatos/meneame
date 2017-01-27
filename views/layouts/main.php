@@ -43,7 +43,7 @@ AppAsset::register($this);
             Yii::$app->user->isGuest ?
             ['label' => 'Login', 'url' => ['/user/security/login'], 'linkOptions' => ['class' => 'blanco']]:
             [
-                'label' => Html::img(Yii::getAlias('@uploads/') . '1.jpg', ['class' => 'img-rounded little']),
+                'label' => Html::img(Yii::$app->user->identity->profile->getAvatar(), ['class' => 'img-rounded little']),
                 'url' => ['/user/profile/show', 'id' => Yii::$app->user->id],
                 'encode' => false,
                 'items' => [
