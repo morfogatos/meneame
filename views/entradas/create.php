@@ -2,12 +2,10 @@
 
 use yii\helpers\Html;
 
-
 /* @var $this yii\web\View */
 /* @var $model app\models\Entrada */
 
-$this->title = 'Create Entrada';
-$this->params['breadcrumbs'][] = ['label' => 'Entradas', 'url' => ['index']];
+$this->title = 'Enviar Entrada';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="entrada-create">
@@ -16,6 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'categorias' => $categorias,
     ]) ?>
 
 </div>

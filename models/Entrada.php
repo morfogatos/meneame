@@ -37,6 +37,7 @@ class Entrada extends \yii\db\ActiveRecord
             [['created_at'], 'safe'],
             [['usuario_id', 'categoria_id'], 'integer'],
             [['url'], 'string', 'max' => 255],
+            [['url'], 'url', 'defaultScheme' => 'http'],
             [['titulo'], 'string', 'max' => 120],
             [['texto'], 'string', 'max' => 550],
             [['categoria_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categoria::className(), 'targetAttribute' => ['categoria_id' => 'id']],
@@ -52,10 +53,10 @@ class Entrada extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'url' => 'Url',
-            'titulo' => 'Titulo',
-            'texto' => 'Texto',
-            'created_at' => 'Created At',
-            'categoria_id' => 'Categoria ID',
+            'titulo' => 'Titulo de la entrada',
+            'texto' => 'Descripción de la entrada',
+            'created_at' => 'Fecha de Publicación',
+            'categoria_id' => 'Categoria',
             'usuario_id' => 'Usuario ID',
         ];
     }

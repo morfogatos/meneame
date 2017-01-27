@@ -19,9 +19,9 @@ $this->title = 'Entradas';
         'dataProvider' => $dataProvider,
         'itemOptions' => ['class' => 'item'],
         'options' => [
-        'tag' => 'div',
-        'class' => 'list-wrapper',
-        'id' => 'list-wrapper',
+            'tag' => 'div',
+            'class' => 'list-wrapper',
+            'id' => 'list-wrapper',
         ],
         'layout' => "{items}\n{pager}",
         'itemView' => '_view.php',

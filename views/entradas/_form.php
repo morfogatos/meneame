@@ -16,12 +16,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'texto')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'categoria_id')->textInput() ?>
+    <?= $form->field($model, 'texto')->textarea(['maxlength' => true, 'rows' => 5]) ?>
+    <!-- , ['itemOptions' => ['class' => 'prueba']] -->
+    <?= $form->field($model, 'categoria_id')->radioList($categorias)->label('Elige una categoria') ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Enviar' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

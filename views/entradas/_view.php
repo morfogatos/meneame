@@ -4,7 +4,7 @@ use yii\helpers\Url;
 
 ?>
 
-<article class="item" data-key="<?= $model->id; ?>">
+<article class="entrada" data-key="<?= $model->id; ?>">
     <h2 class="title">
     <?= Html::a(Html::encode($model->titulo), $model->url, ['titulo' => $model->titulo]) ?>
     </h2>

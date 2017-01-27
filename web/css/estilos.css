@@ -93,12 +93,19 @@
 }
 
 .fondoNav {
-    background-color: #EE9555;
+    /*background-color: #EE9555;*/
+    background-color: #4358E4;
 }
 
 .blanco, .blanco a {
     color: white !important;
     text-shadow: 1px 1px 4px black;
+}
+
+.blancoBrand {
+    color: white !important;
+    font-size: 30px;
+    text-shadow: 2px 2px 2px black;
 }
 
 .avatar {
@@ -125,4 +132,15 @@
 
 .dropdown:hover .caret {
     color: white;
+}
+
+.entrada-create {
+    /*background-color: #EBAC6B;*/
+    background-color: #5FC8E4;
+    padding: 20px;
+    box-shadow: 0px 0px 10px blue;
+}
+
+.item {
+    padding-bottom: 20px;
 }

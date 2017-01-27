@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Entrada;
+use app\models\Categoria;
 use app\models\EntradaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -70,12 +71,14 @@ class EntradasController extends Controller
     public function actionCreate()
     {
         $model = new Entrada();
+        $categorias = Categoria::find()->select('nombre')->indexBy('id')->column();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'categorias' => $categorias,
             ]);
         }
     }

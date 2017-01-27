@@ -30,7 +30,7 @@ AppAsset::register($this);
         'brandLabel' => 'Menéame',
         'brandUrl' => Yii::$app->homeUrl,
         'brandOptions' => [
-            'class' => 'blanco'
+            'class' => 'blancoBrand'
         ],
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top fondoNav',
@@ -40,7 +40,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             Yii::$app->user->isGuest ?
-            ['label' => 'Sign in', 'url' => ['/user/security/login'], 'linkOptions' => ['class' => 'blanco']]:
+            ['label' => 'Login', 'url' => ['/user/security/login'], 'linkOptions' => ['class' => 'blanco']]:
             [
                 'label' => Html::img(Yii::getAlias('@uploads/') . '1.jpg', ['class' => 'img-rounded little']),
                 'url' => ['/user/profile/show', 'id' => Yii::$app->user->id],
@@ -62,7 +62,7 @@ AppAsset::register($this);
                     ],
                 ],
             ],
-            ['label' => 'Register', 'url' => ['/user/registration/register'], 'linkOptions' => ['class' =>'blanco'],'visible' => Yii::$app->user->isGuest]
+            ['label' => 'Registrarse', 'url' => ['/user/registration/register'], 'linkOptions' => ['class' =>'blanco'],'visible' => Yii::$app->user->isGuest]
         ],
     ]);
     NavBar::end();
