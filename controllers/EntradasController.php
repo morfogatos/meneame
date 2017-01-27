@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Entrada;
+use app\models\Etiqueta;
 use app\models\Categoria;
 use phpDocumentor\Reflection\Types\String_;
 use phpDocumentor\Reflection\Types\Integer;
@@ -126,15 +127,20 @@ class EntradasController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Entrada();
+        $entrada = new Entrada;
+        $etiquetas = new Etiqueta;
         $categorias = Categoria::find()->select('nombre')->indexBy('id')->column();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($entrada->load(Yii::$app->request->post()) && $etiquetas->load(Yii::$app->request->post())) {
+            if ($entrada->save()) {
+                $etiquetas->guardar($entrada);
+                return $this->redirect(['view', 'id' => $entrada->id]);
+            }
         } else {
             return $this->render('create', [
-                'model' => $model,
+                'entrada' => $entrada,
                 'categorias' => $categorias,
+                'etiquetas' => $etiquetas,
             ]);
         }
     }

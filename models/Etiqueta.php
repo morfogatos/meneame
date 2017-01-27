@@ -2,6 +2,8 @@
 
 namespace app\models;
 
+use phpDocumentor\Reflection\Types\Boolean;
+
 /**
  * This is the model class for table "etiquetas".
  *
@@ -27,7 +29,7 @@ class Etiqueta extends \yii\db\ActiveRecord
     {
         return [
             [['nombre'], 'required'],
-            [['nombre'], 'string', 'max' => 40],
+            [['nombre'], 'string', 'max' => 100],
         ];
     }
 
@@ -38,8 +40,35 @@ class Etiqueta extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'nombre' => 'Nombre',
+            'nombre' => 'Etiquetas',
         ];
+    }
+
+    /**
+     * Guarda todas las etiquetas separadas y luego las asigna a su entrada
+     * @param  Entrada $entrada la entrada con las etiquetas
+     * @return Boolean true o false dependiendo de si se pudo completar con exito
+     */
+    public function guardar($entrada)
+    {
+        $etiquetas = explode(',', $this->nombre);
+
+        foreach ($etiquetas as $etiqueta) {
+            $etiqueta = trim($etiqueta);
+            if ($etiqueta === '') {
+                continue;
+            }
+
+            $etiquetaGuardar = new Etiqueta;
+            $etiquetaGuardar->nombre = $etiqueta;
+            $etiquetaGuardar->save();
+
+            $entradaEtiqueta = new EntradaEtiqueta;
+            $entradaEtiqueta->entrada_id = $entrada->id;
+            $entradaEtiqueta->etiqueta_id = $etiquetaGuardar->id;
+
+            $entradaEtiqueta->save();
+        }
     }
 
     /**

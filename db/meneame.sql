@@ -29,7 +29,7 @@ drop table if exists etiquetas cascade;
 
 create table etiquetas (
     id     bigserial   constraint pk_etiquetas primary key,
-    nombre varchar(40) not null
+    nombre varchar(100) not null
 );
 
 

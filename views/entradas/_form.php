@@ -12,16 +12,18 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($entrada, 'url')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($entrada, 'titulo')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'texto')->textarea(['maxlength' => true, 'rows' => 5]) ?>
+    <?= $form->field($entrada, 'texto')->textarea(['maxlength' => true, 'rows' => 5]) ?>
     <!-- , ['itemOptions' => ['class' => 'prueba']] -->
-    <?= $form->field($model, 'categoria_id')->radioList($categorias)->label('Elige una categoria') ?>
+    <?= $form->field($entrada, 'categoria_id')->radioList($categorias)->label('Elige una categoria') ?>
+
+    <?= $form->field($etiquetas, 'nombre')->textInput(['maxlength' => true])->label('Pon etiquetas separadas por coma (Ej: ryan gosling, cine, pelicula)') ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Enviar' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($entrada->isNewRecord ? 'Enviar' : 'Update', ['class' => $entrada->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
