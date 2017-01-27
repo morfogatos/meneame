@@ -66,7 +66,7 @@ AppAsset::register($this);
             ['label' => 'Registrarse', 'url' => ['/user/registration/register'], 'linkOptions' => ['class' =>'blanco'],'visible' => Yii::$app->user->isGuest]
         ],
     ]);
-    $form = ActiveForm::begin(['action' =>  ['entradas/search'], 'method' => 'get', 'options' => ['class' => 'navbar-form navbar-right','role' => 'search']]);?>
+    $form = ActiveForm::begin(['action' =>  ['/entradas/search'], 'method' => 'get', 'options' => ['class' => 'navbar-form navbar-right','role' => 'search']]);?>
         <div class="input-group">
             <div class="input-group-btn">
                 <input type="text" class="form-control" placeholder="Search" name="q">
