@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use phpDocumentor\Reflection\Types\Boolean;
 use yii\base\Model;
 use yii\web\UploadedFile;
 use Yii;
@@ -21,6 +22,10 @@ class UploadForm extends Model
         ];
     }
 
+    /**
+     * Se realiza la subida de la imagen haciendose una miniatura de 225x225
+     * @return Boolean true en caso de subida compledada y false en caso contrario
+     */
     public function upload()
     {
         if ($this->validate()) {

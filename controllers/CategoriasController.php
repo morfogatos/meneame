@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Categoria;
 use app\models\CategoriaSearch;
+use phpDocumentor\Reflection\Types\Integer;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -48,7 +49,7 @@ class CategoriasController extends Controller
 
     /**
      * Displays a single Categoria model.
-     * @param integer $id
+     * @param Integer $id
      * @return mixed
      */
     public function actionView($id)
@@ -79,7 +80,7 @@ class CategoriasController extends Controller
     /**
      * Updates an existing Categoria model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param Integer $id
      * @return mixed
      */
     public function actionUpdate($id)
@@ -98,7 +99,7 @@ class CategoriasController extends Controller
     /**
      * Deletes an existing Categoria model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param Integer $id
      * @return mixed
      */
     public function actionDelete($id)
@@ -111,7 +112,7 @@ class CategoriasController extends Controller
     /**
      * Finds the Categoria model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param Integer $id
      * @return Categoria the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

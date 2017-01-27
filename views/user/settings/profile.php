@@ -1,9 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use dektrium\user\helpers\Timezone;
 use yii\widgets\ActiveForm;
-use yii\helpers\ArrayHelper;
 
 /**
  * @var yii\web\View $this

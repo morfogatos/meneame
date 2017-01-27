@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Etiqueta;
 use app\models\EtiquetaSearch;
+use phpDocumentor\Reflection\Types\Integer;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -46,7 +47,7 @@ class EtiquetasController extends Controller
 
     /**
      * Displays a single Etiqueta model.
-     * @param integer $id
+     * @param Integer $id
      * @return mixed
      */
     public function actionView($id)
@@ -77,7 +78,7 @@ class EtiquetasController extends Controller
     /**
      * Updates an existing Etiqueta model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param Integer $id
      * @return mixed
      */
     public function actionUpdate($id)
@@ -96,7 +97,7 @@ class EtiquetasController extends Controller
     /**
      * Deletes an existing Etiqueta model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param Integer $id
      * @return mixed
      */
     public function actionDelete($id)
@@ -109,7 +110,7 @@ class EtiquetasController extends Controller
     /**
      * Finds the Etiqueta model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param Integer $id
      * @return Etiqueta the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

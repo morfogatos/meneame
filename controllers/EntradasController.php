@@ -5,7 +5,8 @@ namespace app\controllers;
 use Yii;
 use app\models\Entrada;
 use app\models\Categoria;
-use app\models\EntradaSearch;
+use phpDocumentor\Reflection\Types\String_;
+use phpDocumentor\Reflection\Types\Integer;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -58,7 +59,7 @@ class EntradasController extends Controller
 
     /**
      * Lists all Entrada models.
-     * @param integer $categoria_id
+     * @param Integer $categoria_id
      * @return mixed
      */
     public function actionIndex($categoria_id = null)
@@ -84,7 +85,11 @@ class EntradasController extends Controller
             'titulo' => null
         ]);
     }
-
+    /**
+     * Realiza la busqueda por titulo de las Entradas
+     * @param  String_ $q la cadena que correspondera con la busqueda del titulo
+     * @return mixed
+     */
     public function actionSearch($q = null)
     {
         $dataProvider = new ActiveDataProvider([
@@ -104,7 +109,7 @@ class EntradasController extends Controller
 
     /**
      * Displays a single Entrada model.
-     * @param integer $id
+     * @param Integer $id
      * @return mixed
      */
     public function actionView($id)
@@ -137,7 +142,7 @@ class EntradasController extends Controller
     /**
      * Updates an existing Entrada model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param Integer $id
      * @return mixed
      */
     public function actionUpdate($id)
@@ -156,7 +161,7 @@ class EntradasController extends Controller
     /**
      * Deletes an existing Entrada model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param Integer $id
      * @return mixed
      */
     public function actionDelete($id)
@@ -169,7 +174,7 @@ class EntradasController extends Controller
     /**
      * Finds the Entrada model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param Integer $id
      * @return Entrada the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

@@ -3,7 +3,6 @@
 namespace app\controllers\user;
 
 use app\models\Entrada;
-use app\models\EntradaSearch;
 use dektrium\user\controllers\ProfileController as BaseProfileController;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;

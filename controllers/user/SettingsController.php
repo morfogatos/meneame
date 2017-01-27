@@ -3,7 +3,6 @@
 namespace app\controllers\user;
 
 use dektrium\user\controllers\SettingsController as BaseSettingsController;
-use yii\web\NotFoundHttpException;
 use app\models\UploadForm;
 use dektrium\user\models\Profile;
 use Yii;

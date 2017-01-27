@@ -4,9 +4,15 @@ namespace app\models;
 
 use dektrium\user\models\Profile as BaseProfile;
 use Yii;
+use phpDocumentor\Reflection\Types\String_;
 
 class Profile extends BaseProfile
 {
+    /**
+     * Se obtiene la ruta hacia el avatar del usuario, si no tiene se le
+     * da un avatar por defecto
+     * @return String_ ruta hacia el avatar
+     */
     public function getAvatar()
     {
         $uploads = Yii::getAlias('@uploads');
