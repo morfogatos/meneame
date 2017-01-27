@@ -6,6 +6,7 @@ use Yii;
 use app\models\Entrada;
 use app\models\Categoria;
 use app\models\EntradaSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -28,16 +29,40 @@ class EntradasController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['create', 'update', 'delete'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['create'],
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['update'],
+                        'roles' => ['admin'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['delete'],
+                        'roles' => ['@'],
+                        'matchCallback' => function ($rule, $action) {
+                            return Entrada::findOne(Yii::$app->request->get('id'))->usuario_id == Yii::$app->user->id;
+                        },
+                    ],
+                ],
+            ],
         ];
     }
 
     /**
      * Lists all Entrada models.
+     * @param integer $categoria_id
      * @return mixed
      */
     public function actionIndex($categoria_id = null)
     {
-        $searchModel = new EntradaSearch();
         if ($categoria_id != null) {
             $dataProvider = new ActiveDataProvider([
                 'query' => Entrada::find()->where(['categoria_id' => $categoria_id])->orderBy(['created_at' => SORT_DESC]),
@@ -55,7 +80,6 @@ class EntradasController extends Controller
         }
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
