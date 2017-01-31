@@ -32,9 +32,13 @@ class UploadForm extends Model
             // $this->imageFile->saveAs('uploads/' . \Yii::$app->user->id . '.' . $this->imageFile->extension);
             $nombre = Yii::getAlias('@uploads/')
                 . \Yii::$app->user->id . '.' . $this->imageFile->extension;
+            $nombreMini = Yii::getAlias('@uploads/')
+                . \Yii::$app->user->id . '-mini.' . $this->imageFile->extension;
             $this->imageFile->saveAs($nombre);
             Image::thumbnail($nombre, 225, 225)
-                ->save($nombre, ['quality' => 50]);
+                ->save($nombre, ['quality' => 80]);
+            Image::thumbnail($nombre, 52, 52)
+                ->save($nombreMini, ['quality' => 50]);
             return true;
         } else {
             return false;

@@ -39,4 +39,23 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+    <?php echo \yii2mod\comments\widgets\Comment::widget([
+      'model' => $model,
+      'maxLevel' => 2,
+      // set `pageSize` with custom sorting
+      'dataProviderConfig' => [
+          'sort' => [
+              'attributes' => ['id'],
+              'defaultOrder' => ['id' => SORT_DESC],
+          ],
+          'pagination' => [
+              'pageSize' => 10
+          ],
+      ],
+       // your own config for comments ListView, for example:
+      'listViewConfig' => [
+          'emptyText' => Yii::t('app', 'No comments found.'),
+      ]
+]); ?>
+
 </div>

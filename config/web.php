@@ -33,6 +33,12 @@ $config = [
                 'User' => 'app\models\User',
             ],
         ],
+        'comment' => [
+            'class' => 'yii2mod\comments\Module',
+        ],
+    ],
+    'controllerMap' => [
+        'comments' => 'yii2mod\comments\controllers\ManageController',
     ],
     'components' => [
         'request' => [
@@ -90,6 +96,15 @@ $config = [
             ],
         ],
         */
+        'i18n' => [
+             'translations' => [
+                 'yii2mod.comments' => [
+                     'class' => 'yii\i18n\PhpMessageSource',
+                     'basePath' => '@yii2mod/comments/messages',
+                 ],
+                 // ...
+             ],
+         ],
     ],
     'params' => $params,
     'language' => 'es_ES',

@@ -13,4 +13,9 @@ class User extends BaseUser
     {
         return $this->hasMany(Entrada::className(), ['usuario_id' => 'id'])->inverseOf('usuario');
     }
+
+    public function getAvatar()
+    {
+        return $this->profile->getAvatarMini();
+    }
 }

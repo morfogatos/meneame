@@ -19,4 +19,16 @@ class Profile extends BaseProfile
         $ruta = "$uploads/{$this->user_id}.jpg";
         return file_exists($ruta) ? "/$ruta" : "/$uploads/default.jpg";
     }
+
+    /**
+     * Se obtiene la ruta hacia el avatar del usuario, si no tiene se le
+     * da un avatar por defecto
+     * @return String_ ruta hacia el avatar
+     */
+    public function getAvatarMini()
+    {
+        $uploads = Yii::getAlias('@uploads');
+        $ruta = "$uploads/{$this->user_id}-mini.jpg";
+        return file_exists($ruta) ? "/$ruta" : "/$uploads/default-mini.jpg";
+    }
 }
