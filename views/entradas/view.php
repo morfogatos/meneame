@@ -2,7 +2,6 @@
 
 use yii\helpers\Url;
 use yii\helpers\Html;
-use app\models\Entrada;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Entrada */
@@ -24,20 +23,36 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a(Html::encode('comentarios'), Url::to(['entradas/view', 'id' => $model->id])) ?>
     </article>
 
-    <?php
-    if ($model->usuario->id == Yii::$app->user->id) { ?>
-        <p>
-            <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-            <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-                'class' => 'btn btn-danger',
-                'data' => [
-                    'confirm' => 'Are you sure you want to delete this item?',
-                    'method' => 'post',
-                ],
-            ]) ?>
-        </p> <?php
-        } ?>
+    <?php if ($model->usuario->id == Yii::$app->user->id) : ?>
+    <p>
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ]) ?>
+    </p> <?php endif ?>
 
-
+    <?php echo \yii2mod\comments\widgets\Comment::widget([
+        'model' => $model,
+        'relatedTo' => 'User ' . \Yii::$app->user->identity->username . ' commented on the page ' . \yii\helpers\Url::current(),
+        'maxLevel' => 2,
+        // set `pageSize` with custom sorting
+        'dataProviderConfig' => [
+            'sort' => [
+                'attributes' => ['id'],
+                'defaultOrder' => ['id' => SORT_DESC],
+            ],
+            'pagination' => [
+                'pageSize' => 10
+            ],
+        ],
+        // your own config for comments ListView, for example:
+        'listViewConfig' => [
+            'emptyText' => Yii::t('app', 'No comments found.'),
+        ]
+    ]); ?>
 
 </div>
