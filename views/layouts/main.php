@@ -49,11 +49,11 @@ AppAsset::register($this);
                 'items' => [
                     [
                        'label' => 'Mi Perfil',
-                       'url' => ['/user/profile/show', 'id' => Yii::$app->user->id],
+                       'url' => ['/user/' . Yii::$app->user->id],
                     ],
                     [
                        'label' => 'Configuración',
-                       'url' => ['/user/settings/profile', 'id' => Yii::$app->user->id]
+                       'url' => ['/user/settings/profile']
                     ],
                     '<li class="divider"></li>',
                     [
@@ -63,7 +63,7 @@ AppAsset::register($this);
                     ],
                 ],
             ],
-            ['label' => 'Registrarse', 'url' => ['/user/registration/register'], 'linkOptions' => ['class' =>'blanco'],'visible' => Yii::$app->user->isGuest]
+            ['label' => 'Registrarse', 'url' => ['/user/register'], 'linkOptions' => ['class' =>'blanco'],'visible' => Yii::$app->user->isGuest]
         ],
     ]);
     $form = ActiveForm::begin(['action' =>  ['/entradas/search'], 'method' => 'get', 'options' => ['class' => 'navbar-form navbar-right','role' => 'search']]);?>

@@ -88,14 +88,16 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'entrada/<id:\d>' => 'entradas/view',
+                'entrada/enviar' => 'entradas/create',
+                'entrada/categoria/<categoria_id:\d>' => 'entradas/index',
+                'entrada/etiqueta/<etiqueta_id:\d>' => 'entradas/index',
             ],
         ],
-        */
         'i18n' => [
              'translations' => [
                  'yii2mod.comments' => [
