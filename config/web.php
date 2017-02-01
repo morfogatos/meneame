@@ -102,9 +102,8 @@ $config = [
              'translations' => [
                  'yii2mod.comments' => [
                      'class' => 'yii\i18n\PhpMessageSource',
-                     'basePath' => '@yii2mod/comments/messages',
+                     'basePath' => '@app/messages',
                  ],
-                 // ...
              ],
          ],
     ],

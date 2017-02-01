@@ -20,7 +20,6 @@ $this->params['breadcrumbs'][] = $this->title;
         publicado <?= Yii::$app->formatter->asRelativeTime($model->created_at) ?> </p>
         <p><?= Html::encode($model->texto) ?></p>
 
-        <?= Html::a(Html::encode('comentarios'), Url::to(['entradas/view', 'id' => $model->id])) ?>
     </article>
 
     <?php if ($model->usuario->id == Yii::$app->user->id) : ?>
@@ -37,7 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php echo \yii2mod\comments\widgets\Comment::widget([
         'model' => $model,
-        'relatedTo' => 'User ' . \Yii::$app->user->identity->username . ' commented on the page ' . \yii\helpers\Url::current(),
         'maxLevel' => 2,
         // set `pageSize` with custom sorting
         'dataProviderConfig' => [
@@ -51,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         // your own config for comments ListView, for example:
         'listViewConfig' => [
-            'emptyText' => Yii::t('app', 'No comments found.'),
+            'emptyText' => Yii::t('app', 'Ningún comentario encontrado.'),
         ]
     ]); ?>
 
