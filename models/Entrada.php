@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use phpDocumentor\Reflection\Types\Integer;
+use yii2mod\comments\models\CommentModel;
 
 /**
  * This is the model class for table "entradas".
@@ -99,5 +101,13 @@ class Entrada extends \yii\db\ActiveRecord
     public function getUsuario()
     {
         return $this->hasOne(User::className(), ['id' => 'usuario_id'])->inverseOf('entradas');
+    }
+
+    /**
+     * @return Integer
+     */
+    public function getComentarios()
+    {
+        return $this->hasMany(CommentModel::className(), ['entityId' => 'id'])->count();
     }
 }
