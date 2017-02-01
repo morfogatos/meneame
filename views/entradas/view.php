@@ -19,6 +19,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <p>por <?= $model->usuario->username ?> el <?= Yii::$app->formatter->asDate($model->created_at) ?>
         publicado <?= Yii::$app->formatter->asRelativeTime($model->created_at) ?> </p>
         <p><?= Html::encode($model->texto) ?></p>
+        <?php foreach ($model->etiquetas as $etiqueta) : ?>
+            <?= Html::a(Html::encode($etiqueta->nombre), Url::to(['/entrada/etiqueta/' . $etiqueta->id])) ?>
+        <?php endforeach ?>
 
     </article>
 
@@ -41,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProviderConfig' => [
             'sort' => [
                 'attributes' => ['id'],
-                'defaultOrder' => ['id' => SORT_DESC],
+                'defaultOrder' => ['id' => SORT_ASC],
             ],
             'pagination' => [
                 'pageSize' => 10
