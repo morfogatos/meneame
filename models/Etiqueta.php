@@ -59,13 +59,20 @@ class Etiqueta extends \yii\db\ActiveRecord
                 continue;
             }
 
-            $etiquetaGuardar = new Etiqueta;
-            $etiquetaGuardar->nombre = $etiqueta;
-            $etiquetaGuardar->save();
-
+            $existeEntrada = Etiqueta::findOne(['nombre' => $etiqueta]);
             $entradaEtiqueta = new EntradaEtiqueta;
-            $entradaEtiqueta->entrada_id = $entrada->id;
-            $entradaEtiqueta->etiqueta_id = $etiquetaGuardar->id;
+
+            if ($existeEntrada == null) {
+                $etiquetaGuardar = new Etiqueta;
+                $etiquetaGuardar->nombre = $etiqueta;
+                $etiquetaGuardar->save();
+
+                $entradaEtiqueta->entrada_id = $entrada->id;
+                $entradaEtiqueta->etiqueta_id = $etiquetaGuardar->id;
+            } else {
+                $entradaEtiqueta->entrada_id = $entrada->id;
+                $entradaEtiqueta->etiqueta_id = $existeEntrada->id;
+            }
 
             $entradaEtiqueta->save();
         }

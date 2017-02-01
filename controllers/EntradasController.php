@@ -63,9 +63,19 @@ class EntradasController extends Controller
      * @param Integer $categoria_id
      * @return mixed
      */
-    public function actionIndex($categoria_id = null)
+    public function actionIndex($categoria_id = null, $etiqueta_id = null)
     {
-        if ($categoria_id != null) {
+        $entradas = Etiqueta::find()->where(['id' => $etiqueta_id])->all();
+        // var_dump($entradas);
+        // die();
+        if ($etiqueta_id != null) {
+            $dataProvider = new ActiveDataProvider([
+                'query' => Entrada::find()->where(['categoria_id' => $categoria_id])->orderBy(['created_at' => SORT_DESC]),
+                'pagination' => [
+                    'pageSize' => 10,
+                ]
+            ]);
+        } elseif ($categoria_id != null) {
             $dataProvider = new ActiveDataProvider([
                 'query' => Entrada::find()->where(['categoria_id' => $categoria_id])->orderBy(['created_at' => SORT_DESC]),
                 'pagination' => [
