@@ -74,7 +74,7 @@ $config = [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',
                 'username' => 'meneamedonana@gmail.com',
-                'password' => 'morfogatos',
+                'password' => getenv('SMTP_PASS'),
                 'port' => '587',
                 'encryption' => 'tls',
             ],
