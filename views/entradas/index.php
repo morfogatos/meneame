@@ -7,19 +7,16 @@ use yii\widgets\ListView;
 /* @var $searchModel app\models\EntradaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Entradas';
+$this->title = 'Menéame Doñana';
 ?>
 <div class="entrada-index">
 
     <p>
         <?= Html::a('ENVIAR ENTRADA', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    <?php if ($titulo !== null) {
-    ?>
+    <?php if ($titulo !== null) : ?>
         <p>Buscando entradas por título: <?= $titulo ?></p>
-    <?php
-
-} ?>
+    <?php endif ?>
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'itemOptions' => ['class' => 'item'],

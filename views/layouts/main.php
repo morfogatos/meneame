@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Menéame',
+        'brandLabel' => 'Menéame Doñana',
         'brandUrl' => Yii::$app->homeUrl,
         'brandOptions' => [
             'class' => 'blancoBrand'

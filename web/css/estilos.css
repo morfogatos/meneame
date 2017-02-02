@@ -158,3 +158,29 @@
 .item {
     padding-bottom: 20px;
 }
+
+.botones {
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.title > a {
+    color: black;
+}
+
+.entrada > p:first-of-type {
+    font-size: 15px;
+}
+
+.entrada span {
+    font-weight: bold;
+    color: #3133BA;
+}
+
+.entrada > a:nth-child(n+6)::before {
+    content: ", ";
+}
+
+.entrada > a:last-child::after {
+    content: "";
+}

@@ -61,6 +61,7 @@ class EntradasController extends Controller
     /**
      * Lists all Entrada models.
      * @param Integer $categoria_id
+     * @param Integer $etiqueta_id
      * @return mixed
      */
     public function actionIndex($categoria_id = null, $etiqueta_id = null)

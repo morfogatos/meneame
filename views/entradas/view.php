@@ -15,27 +15,40 @@ $this->params['breadcrumbs'][] = $this->title;
     <article class="entrada" data-key="<?= $model->id; ?>"style="font-size: 20px; font-family: Verdana;" >
         <h2 class="title" >
         <?= Html::a(Html::encode($model->titulo), $model->url, ['titulo' => $model->titulo]) ?>
+        <?php if (Yii::$app->user->identity->isAdmin) : ?>
+        <div class="botones">
+            <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => 'Are you sure you want to delete this item?',
+                    'method' => 'post',
+                ],
+            ]) ?>
+        </div>
+        <?php elseif ($model->usuario->id == Yii::$app->user->id) : ?>
+        <p class="botones">
+            <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => 'Are you sure you want to delete this item?',
+                    'method' => 'post',
+                ],
+            ]) ?>
+        </p>
+        <?php endif ?>
         </h2>
-        <p>por <?= Html::a(Html::encode($model->usuario->username), Url::to(['user/' . Yii::$app->user->id])) ?> el <?= Yii::$app->formatter->asDate($model->created_at) ?>
-        publicado <?= Yii::$app->formatter->asRelativeTime($model->created_at) ?> </p>
+        <p><?= Html::img($model->usuario->getAvatar(), ['width' => 25, 'height' => 25, 'class' => 'img-circle']) ?> por <?= Html::a(Html::encode($model->usuario->username), Url::to(['user/' . Yii::$app->user->id])) ?> el <?= Yii::$app->formatter->asDate($model->created_at) ?>
+        publicado: <?= Yii::$app->formatter->asRelativeTime($model->created_at) ?> </p>
         <p><?= Html::encode($model->texto) ?></p>
+        <span>Etiquetas: </span>
         <?php foreach ($model->etiquetas as $etiqueta) : ?>
             <?= Html::a(Html::encode($etiqueta->nombre), Url::to(['/entrada/etiqueta/' . $etiqueta->id])) ?>
         <?php endforeach ?>
 
     </article>
 
-    <?php if ($model->usuario->id == Yii::$app->user->id) : ?>
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p> <?php endif ?>
+
 
     <?php echo \yii2mod\comments\widgets\Comment::widget([
         'model' => $model,
