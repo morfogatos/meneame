@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <article class="entrada" data-key="<?= $model->id; ?>"style="font-size: 20px; font-family: Verdana;" >
         <h2 class="title" >
         <?= Html::a(Html::encode($model->titulo), $model->url, ['titulo' => $model->titulo]) ?>
-        <?php if (Yii::$app->user->identity->isAdmin) : ?>
+        <?php if (!Yii::$app->user->isGuest && Yii::$app->user->identity->isAdmin) : ?>
         <div class="botones">
             <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
             <?= Html::a('Delete', ['delete', 'id' => $model->id], [
@@ -38,7 +38,9 @@ $this->params['breadcrumbs'][] = $this->title;
         </p>
         <?php endif ?>
         </h2>
-        <p><?= Html::img($model->usuario->getAvatar(), ['width' => 25, 'height' => 25, 'class' => 'img-circle']) ?> por <?= Html::a(Html::encode($model->usuario->username), Url::to(['user/' . Yii::$app->user->id])) ?> el <?= Yii::$app->formatter->asDate($model->created_at) ?>
+        <p><?= Html::img($model->usuario->getAvatar(), ['width' => 25, 'height' => 25, 'class' => 'img-circle']) ?>
+            por <?= Html::a(Html::encode($model->usuario->username), Url::to(['/user/' . $model->usuario_id])) ?>
+            el <?= Yii::$app->formatter->asDate($model->created_at) ?>
         publicado: <?= Yii::$app->formatter->asRelativeTime($model->created_at) ?> </p>
         <p><?= Html::encode($model->texto) ?></p>
         <span>Etiquetas: </span>
