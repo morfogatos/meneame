@@ -110,4 +110,20 @@ class Entrada extends \yii\db\ActiveRecord
     {
         return $this->hasMany(CommentModel::className(), ['entityId' => 'id'])->count();
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMeneos()
+    {
+        return $this->hasMany(Meneo::className(), ['entrada_id' => 'id'])->inverseOf('entrada');
+    }
+
+    /**
+     * @return Integer
+     */
+    public function getNumeroMeneos()
+    {
+        return $this->hasMany(Meneo::className(), ['entrada_id' => 'id'])->count();
+    }
 }

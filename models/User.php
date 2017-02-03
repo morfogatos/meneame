@@ -18,4 +18,12 @@ class User extends BaseUser
     {
         return $this->profile->getAvatarMini();
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMeneos()
+    {
+        return $this->hasMany(Meneo::className(), ['usuario_id' => 'id'])->inverseOf('usuario');
+    }
 }

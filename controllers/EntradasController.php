@@ -3,12 +3,14 @@
 namespace app\controllers;
 
 use Yii;
+use app\models\Meneo;
 use app\models\Entrada;
 use app\models\Etiqueta;
 use app\models\Categoria;
 use phpDocumentor\Reflection\Types\String_;
 use phpDocumentor\Reflection\Types\Integer;
 use yii\filters\AccessControl;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -96,6 +98,26 @@ class EntradasController extends Controller
             'titulo' => null
         ]);
     }
+
+    /**
+     * Realiza el meneo a la entrada
+     * @return [type] [description]
+     */
+    public function actionMeneo()
+    {
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(Url::toRoute(['user/login']));
+        }
+        $entrada = $this->findModel(Yii::$app->request->get('submit'));
+
+        $meneo = new Meneo;
+        $meneo->usuario_id = Yii::$app->user->id;
+        $meneo->entrada_id = $entrada->id;
+        if (!Meneo::findOne(['entrada_id' => $meneo->entrada_id, 'usuario_id' => $meneo->usuario_id])) {
+            $meneo->save();
+        }
+    }
+
     /**
      * Realiza la busqueda por titulo de las Entradas
      * @param  String_ $q la cadena que correspondera con la busqueda del titulo

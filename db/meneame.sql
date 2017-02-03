@@ -24,6 +24,15 @@ create table entradas (
                                 on delete no action on update cascade
 );
 
+drop table if exists meneos cascade;
+
+create table meneos (
+    usuario_id  bigint        constraint fk_meneos_user references public.user(id)
+        on delete cascade on update cascade,
+    entrada_id     bigint        constraint fk_meneos_entradas references entradas(id)
+        on delete cascade on update cascade,
+    constraint pk_meneos primary key (usuario_id, entrada_id)
+);
 
 drop table if exists etiquetas cascade;
 
@@ -45,6 +54,7 @@ create table entradas_etiquetas (
 );
 
 create index idx_etiquetas_nombre on etiquetas (nombre);
+create index idx_meneos_entrada on meneos (entrada_id);
 create index idx_categorias_nombre on categorias (nombre);
 create index idx_entradas_titulo on entradas (titulo);
 create index idx_entradas_etiquetas_entrada_etiqueta
