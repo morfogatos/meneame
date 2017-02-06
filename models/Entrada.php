@@ -120,6 +120,14 @@ class Entrada extends \yii\db\ActiveRecord
     }
 
     /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMeneadores()
+    {
+        return $this->hasMany(User::className(), ['id' => 'usuario_id'])->via('meneos');
+    }
+
+    /**
      * @return Integer
      */
     public function getNumeroMeneos()

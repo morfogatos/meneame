@@ -102,12 +102,12 @@ class EntradasController extends Controller
     /**
      * Realiza el meneo a la entrada
      */
-    public function actionMeneo()
+    public function actionMeneo($id)
     {
         if (Yii::$app->user->isGuest) {
             return $this->redirect(Url::toRoute(['user/login']));
         }
-        $entrada = $this->findModel(Yii::$app->request->get('submit'));
+        $entrada = $this->findModel($id);
 
         $meneo = new Meneo;
         $meneo->usuario_id = Yii::$app->user->id;
@@ -115,6 +115,8 @@ class EntradasController extends Controller
         if (!Meneo::findOne(['entrada_id' => $meneo->entrada_id, 'usuario_id' => $meneo->usuario_id])) {
             $meneo->save();
         }
+
+        return $this->actionIndex();
     }
 
     /**

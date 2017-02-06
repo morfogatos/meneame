@@ -31,4 +31,12 @@ class User extends BaseUser
     {
         return $this->hasMany(Meneo::className(), ['usuario_id' => 'id'])->inverseOf('usuario');
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMeneadas()
+    {
+        return $this->hasMany(Entrada::className(), ['id' => 'entrada_id'])->via('meneos');
+    }
 }
