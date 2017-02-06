@@ -11,7 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * EtiquetasController implements the CRUD actions for Etiqueta model.
+ * EtiquetasController implementa las acciones CRUD para el modelo Etiqueta.
  */
 class EtiquetasController extends Controller
 {
@@ -31,7 +31,7 @@ class EtiquetasController extends Controller
     }
 
     /**
-     * Lists all Etiqueta models.
+     * Lista todos los modelos Etiqueta.
      * @return mixed
      */
     public function actionIndex()
@@ -46,7 +46,7 @@ class EtiquetasController extends Controller
     }
 
     /**
-     * Displays a single Etiqueta model.
+     * Muestra un modelo Etiqueta.
      * @param Integer $id
      * @return mixed
      */
@@ -58,8 +58,8 @@ class EtiquetasController extends Controller
     }
 
     /**
-     * Creates a new Etiqueta model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * Crea un nuevo modelo Etiqueta.
+     * Si la creación es exitosa, el navegador será redireccionado a la página 'view'.
      * @return mixed
      */
     public function actionCreate()
@@ -76,8 +76,8 @@ class EtiquetasController extends Controller
     }
 
     /**
-     * Updates an existing Etiqueta model.
-     * If update is successful, the browser will be redirected to the 'view' page.
+     * Actualiza un modelo Etiqueta existente.
+     * Si la actialización es exitosa, el navegador será redireccionado a la página 'view'.
      * @param Integer $id
      * @return mixed
      */
@@ -95,8 +95,8 @@ class EtiquetasController extends Controller
     }
 
     /**
-     * Deletes an existing Etiqueta model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * Borra un modelo Etiqueta existente.
+     * Si la actialización es exitosa, el navegador será redireccionado a la página 'index'.
      * @param Integer $id
      * @return mixed
      */
@@ -108,8 +108,8 @@ class EtiquetasController extends Controller
     }
 
     /**
-     * Finds the Etiqueta model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
+     * Busca el modelo Etiqueta basado en el valor de su clave primaria.
+     * Si el modelo no es encontrado, una excepcion 404 HTTP será lanzada.
      * @param Integer $id
      * @return Etiqueta the loaded model
      * @throws NotFoundHttpException if the model cannot be found

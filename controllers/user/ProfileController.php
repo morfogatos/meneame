@@ -14,7 +14,7 @@ class ProfileController extends BaseProfileController
 {
 
 /**
- * Shows user's profile.
+ * Muestra el perfil del usuario
  *
  * @param int $id
  *

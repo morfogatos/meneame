@@ -11,7 +11,7 @@ use yii\web\UploadedFile;
 class SettingsController extends BaseSettingsController
 {
     /**
-     * Shows profile settings form.
+     * Muestra el formulario de configuración del perfil
      *
      * @return string|\yii\web\Response
      */

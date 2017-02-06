@@ -11,7 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CategoriasController implements the CRUD actions for Categoria model.
+ * CategoriasController implementa las acciones CRUD para el modelo Categoria.
  */
 class CategoriasController extends Controller
 {
@@ -31,7 +31,7 @@ class CategoriasController extends Controller
     }
 
     /**
-     * Lists all Categoria models.
+     * Lista todos los modelos Categoria.
      * @return mixed
      */
     public function actionIndex()
@@ -48,7 +48,7 @@ class CategoriasController extends Controller
     }
 
     /**
-     * Displays a single Categoria model.
+     * Muestra un modelo Categoria.
      * @param Integer $id
      * @return mixed
      */
@@ -60,8 +60,8 @@ class CategoriasController extends Controller
     }
 
     /**
-     * Creates a new Categoria model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * Crea un nuevo modelo Categoria.
+     * Si la creación es exitosa, el navegador será redireccionado a la página 'view'.
      * @return mixed
      */
     public function actionCreate()
@@ -78,8 +78,8 @@ class CategoriasController extends Controller
     }
 
     /**
-     * Updates an existing Categoria model.
-     * If update is successful, the browser will be redirected to the 'view' page.
+     * Actualiza un modelo Categoria existente.
+     * Si la actialización es exitosa, el navegador será redireccionado a la página 'view'.
      * @param Integer $id
      * @return mixed
      */
@@ -97,8 +97,8 @@ class CategoriasController extends Controller
     }
 
     /**
-     * Deletes an existing Categoria model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * Borra un modelo Categoria existente.
+     * Si la actialización es exitosa, el navegador será redireccionado a la página 'view'.
      * @param Integer $id
      * @return mixed
      */
@@ -110,8 +110,8 @@ class CategoriasController extends Controller
     }
 
     /**
-     * Finds the Categoria model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
+     * Busca el modelo Categoria basado en el valor de su clave primaria.
+     * Si el modelo no es encontrado, una excepcion 404 HTTP será lanzada.
      * @param Integer $id
      * @return Categoria the loaded model
      * @throws NotFoundHttpException if the model cannot be found

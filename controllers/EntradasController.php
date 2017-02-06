@@ -17,7 +17,7 @@ use yii\filters\VerbFilter;
 use yii\data\ActiveDataProvider;
 
 /**
- * EntradasController implements the CRUD actions for Entrada model.
+ * EntradasController implementa las acciones CRUD para el modelo Entrada.
  */
 class EntradasController extends Controller
 {
@@ -61,7 +61,7 @@ class EntradasController extends Controller
     }
 
     /**
-     * Lists all Entrada models.
+     * Lista todos los modelos Entrada.
      * @param Integer $categoria_id
      * @param Integer $etiqueta_id
      * @return mixed
@@ -101,7 +101,6 @@ class EntradasController extends Controller
 
     /**
      * Realiza el meneo a la entrada
-     * @return [type] [description]
      */
     public function actionMeneo()
     {
@@ -141,7 +140,7 @@ class EntradasController extends Controller
     }
 
     /**
-     * Displays a single Entrada model.
+     * Muestra un modelo Entrada.
      * @param Integer $id
      * @return mixed
      */
@@ -153,7 +152,7 @@ class EntradasController extends Controller
     }
 
     /**
-     * Creates a new Entrada model.
+     * Crea un nuevo modelo Entrada.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
@@ -178,7 +177,7 @@ class EntradasController extends Controller
     }
 
     /**
-     * Updates an existing Entrada model.
+     * Actualiza un modelo Entrada existente.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param Integer $id
      * @return mixed
@@ -197,8 +196,8 @@ class EntradasController extends Controller
     }
 
     /**
-     * Deletes an existing Entrada model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * Borra un modelo Entrada existente.
+     * Si la actialización es exitosa, el navegador será redireccionado a la página 'view'.
      * @param Integer $id
      * @return mixed
      */
@@ -210,8 +209,8 @@ class EntradasController extends Controller
     }
 
     /**
-     * Finds the Entrada model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
+     * Busca el modelo Entrada basado en el valor de su clave primaria.
+     * Si el modelo no es encontrado, una excepcion 404 HTTP será lanzada.
      * @param Integer $id
      * @return Entrada the loaded model
      * @throws NotFoundHttpException if the model cannot be found
