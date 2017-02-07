@@ -92,6 +92,7 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => false,
             'rules' => [
                 'entrada/<id:\d>' => 'entradas/view',
                 'entrada/enviar' => 'entradas/create',

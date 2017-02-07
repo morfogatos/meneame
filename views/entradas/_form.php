@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 
 <div class="entrada-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['id' => 'form-enviar']); ?>
 
     <?= $form->field($entrada, 'url')->textInput(['maxlength' => true]) ?>
 
