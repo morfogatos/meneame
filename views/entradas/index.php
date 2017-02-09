@@ -10,7 +10,7 @@ use yii\widgets\ListView;
 $this->title = 'Menéame Doñana';
 ?>
 <div class="entrada-index">
-
+    <div class="sugerencias"></div>
     <p>
         <?= Html::a('ENVIAR ENTRADA', ['create'], ['class' => 'btn btn-success']) ?>
     </p>

@@ -11,6 +11,7 @@ use phpDocumentor\Reflection\Types\String_;
 use phpDocumentor\Reflection\Types\Integer;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
+use yii\helpers\Json;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -101,6 +102,8 @@ class EntradasController extends Controller
 
     /**
      * Realiza el meneo a la entrada
+     * @param  [type] $id [description]
+     * @return [type]     [description]
      */
     public function actionMeneo($id)
     {
@@ -143,6 +146,25 @@ class EntradasController extends Controller
 
     /**
      * Muestra un modelo Entrada.
+     * @param  [type] $q [description]
+     * @return [type]    [description]
+     */
+    public function actionSearchAjax($q = null)
+    {
+        $entradas = [];
+
+        if ($q != null || $q != '') {
+            $entradas = Entrada::find()
+            ->select('titulo')
+            ->where(['ilike', 'titulo', "$q"])
+            ->column();
+        }
+
+        return Json::encode($entradas);
+    }
+
+    /**
+     * Displays a single Entrada model.
      * @param Integer $id
      * @return mixed
      */

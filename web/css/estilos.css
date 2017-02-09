@@ -184,3 +184,7 @@
 .entrada > a:last-child::after {
     content: "";
 }
+
+.ui-autocomplete {
+    z-index: 2000 !important;
+}

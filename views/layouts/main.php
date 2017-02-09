@@ -3,6 +3,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -10,7 +11,25 @@ use yii\widgets\ActiveForm;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
+$url = Url::to(['entradas/search-ajax']);
+$js = <<<EOT
+    $('#search').on('keyup focus', function () {
+        $.ajax({
+            method: 'get',
+            url: '$url',
+            data: {
+                q: $('#search').val()
+            },
+            success: function (data, status, event) {
+                var d = JSON.parse(data);
+                console.log(d);
+                $('#search').autocomplete({source:d});
+            }
+        });
+    });
+EOT;
 AppAsset::register($this);
+$this->registerJs($js);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -69,8 +88,9 @@ AppAsset::register($this);
     $form = ActiveForm::begin(['action' =>  ['/entradas/search'], 'method' => 'get', 'options' => ['class' => 'navbar-form navbar-right','role' => 'search']]);?>
         <div class="input-group">
             <div class="input-group-btn">
-                <input type="text" class="form-control" placeholder="Search" name="q">
+                <input type="text" id="search" class="form-control" placeholder="Search" name="q">
                 <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                <div class="sugerenciasa"></div>
             </div>
         </div>
     <?php ActiveForm::end();
