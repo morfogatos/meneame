@@ -97,6 +97,7 @@ $config = [
                 'entrada/enviar' => 'entradas/create',
                 'entrada/categoria/<categoria_id:\d>' => 'entradas/index',
                 'entrada/etiqueta/<etiqueta_id:\d>' => 'entradas/index',
+                'entrada/meneo' => 'entradas/meneo'
             ],
         ],
         'i18n' => [

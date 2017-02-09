@@ -105,12 +105,12 @@ class EntradasController extends Controller
      * @param  [type] $id [description]
      * @return [type]     [description]
      */
-    public function actionMeneo($id)
+    public function actionMeneo()
     {
         if (Yii::$app->user->isGuest) {
             return $this->redirect(Url::toRoute(['user/login']));
         }
-        $entrada = $this->findModel($id);
+        $entrada = $this->findModel(Yii::$app->request->post('id'));
 
         $meneo = new Meneo;
         $meneo->usuario_id = Yii::$app->user->id;
@@ -119,7 +119,7 @@ class EntradasController extends Controller
             $meneo->save();
         }
 
-        return $this->actionIndex();
+        return json_encode($entrada->numeroMeneos);
     }
 
     /**

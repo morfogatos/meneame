@@ -185,6 +185,28 @@
     content: "";
 }
 
+
 .ui-autocomplete {
     z-index: 2000 !important;
+}
+
+.articulo {
+    display:flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.articulo > * {
+    margin: 5px;
+}
+
+#menealo {
+    min-width: 100.27px;
+    padding: 5px;
+    border: 1px solid #3133BA;
+    border-radius: 5px;
+    background-color: #64a5e0;
+    text-align: center;
+    color: #3133BA;
+    font-weight: bold;
 }

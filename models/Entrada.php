@@ -127,6 +127,17 @@ class Entrada extends \yii\db\ActiveRecord
         return $this->hasMany(User::className(), ['id' => 'usuario_id'])->via('meneos');
     }
 
+    public function esMeneador($id)
+    {
+        foreach ($this->meneadores as $meneador) {
+            if ($meneador->id == $id) :
+                return true;
+            endif;
+        }
+        return false;
+    }
+
+
     /**
      * @return Integer
      */
