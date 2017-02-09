@@ -1,4 +1,6 @@
 <?php
+use app\models\User;
+use app\models\Entrada;
 
 /**
  *
@@ -12,6 +14,8 @@ class RegistrarFormCest
      */
     public function _before(FunctionalTester $I)
     {
+        Entrada::deleteAll();
+        User::deleteAll();
         $I->amOnPage(['user/registration/register']);
     }
 

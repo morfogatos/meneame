@@ -1,5 +1,7 @@
 <?php
 
+use app\models\User;
+use dektrium\user\models\RegistrationForm;
 use yii\helpers\Html;
 use yii\widgets\ListView;
 
