@@ -22,8 +22,8 @@ if ($url !== false) {
 
 return [
     'class' => 'yii\db\Connection',
-    // 'dsn' => 'pgsql:host=localhost;dbname=meneame',
-    'dsn' => 'pgsql:host=localhost;dbname=meneame_test',
+    'dsn' => 'pgsql:host=localhost;dbname=meneame',
+    // 'dsn' => 'pgsql:host=localhost;dbname=meneame_test',
     'username' => 'meneame',
     'password' => 'meneame',
     'charset' => 'utf8',

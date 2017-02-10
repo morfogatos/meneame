@@ -1,7 +1,5 @@
 <?php
 use app\models\User;
-use app\models\Entrada;
-use dektrium\user\models\RegistrationForm;
 /**
  *
  */
@@ -14,14 +12,7 @@ class EntradaFormCest
      */
     public function _before(FunctionalTester $I)
     {
-        Entrada::deleteAll();
-        User::deleteAll();
-        $user = new RegistrationForm();
-        $user->username = 'prueba';
-        $user->password = 'prueba';
-        $user->email = 'prueba@gmail.com';
-        $user->register();
-        $I->amLoggedInAs(User::findOne(['username' => 'prueba'])->id);
+        $I->amLoggedInAs(User::findOne(1000));
         $I->amOnPage(['entradas/create']);
     }
 
@@ -40,12 +31,14 @@ class EntradaFormCest
             'Entrada[nombre]' => 'hola, pepe'
         ]);
         $I->dontSeeElement('#form-enviar');
-        $I->amOnPage(['entradas/view']);
+        $I->see('awdadwa');
+        // $I->amOnPage(['entradas%2Fview&id=1']);
     }
 
     public function enviarEntradaVacia(\FunctionalTester $I)
     {
         $I->submitForm('#form-enviar', []);
+        $I->amOnPage(['entradas/create']);
         $I->expectTo('see validations errors');
         $I->see('Url no puede estar vacío.');
         $I->see('Titulo de la entrada no puede estar vacío.');
