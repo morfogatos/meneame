@@ -14,7 +14,7 @@ modules:
             dsn: 'pgsql:host=localhost;dbname=meneame_test'
             user: 'meneame'
             password: 'meneame'
-            dump: tests/_data/dump.sql
+            dump: db/dump.sql
             populate: true
             cleanup: true
             reconnect: true

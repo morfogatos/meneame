@@ -500,7 +500,7 @@ m160929_103127_add_last_login_at_to_user_table	1486738790
 --
 
 COPY profile (user_id, name, public_email, gravatar_email, gravatar_id, location, website, bio, timezone) FROM stdin;
-1	\N	\N	\N	\N	\N	\N	\N	\N
+1000	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 
 
@@ -525,7 +525,7 @@ COPY token (user_id, code, created_at, type) FROM stdin;
 --
 
 COPY "user" (id, username, email, password_hash, auth_key, confirmed_at, unconfirmed_email, blocked_at, registration_ip, created_at, updated_at, flags, last_login_at) FROM stdin;
-1	prueba	prueba@gmail.com	$2y$12$BUrTQ2e7180X7rc86WK1ROWT3iFqPaIV07yi7PPMOdQq//e81s8Iu	ajKnglpo3bkx1SER-LCHY3IlLcqphiRp	1486739311	\N	\N	127.0.0.1	1486739229	1486739229	0	\N
+1000	prueba	prueba@gmail.com	$2y$12$BUrTQ2e7180X7rc86WK1ROWT3iFqPaIV07yi7PPMOdQq//e81s8Iu	ajKnglpo3bkx1SER-LCHY3IlLcqphiRp	1486739311	\N	\N	127.0.0.1	1486739229	1486739229	0	\N
 \.
 
 
