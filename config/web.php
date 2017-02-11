@@ -64,10 +64,15 @@ $config = [
         'authClientCollection' => [
             'class'   => \yii\authclient\Collection::className(),
             'clients' => [
-                'twitter' => [
-                    'class'          => 'dektrium\user\clients\Twitter',
-                    'consumerKey'    => getenv('CONSUMER_KEY'),
-                    'consumerSecret' => getenv('CONSUMER_SECRET'),
+                'google' => [
+                    'class'        => 'dektrium\user\clients\Google',
+                    'clientId'     => getenv('GOOGLE_ID'),
+                    'clientSecret' => getenv('GOOGLE_SECRET'),
+                ],
+                'facebook' => [
+                    'class'        => 'dektrium\user\clients\Facebook',
+                    'clientId'     => getenv('CLIENT_ID'),
+                    'clientSecret' => getenv('CLIENTE_SECRET'),
                 ],
                 // 'google' => [
                 //     'class'        => 'dektrium\user\clients\Google',
