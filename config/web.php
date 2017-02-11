@@ -74,11 +74,11 @@ $config = [
                     'clientId'     => getenv('CLIENT_ID'),
                     'clientSecret' => getenv('CLIENTE_SECRET'),
                 ],
-                // 'google' => [
-                //     'class'        => 'dektrium\user\clients\Google',
-                //     'clientId'     => 'CLIENT_ID',
-                //     'clientSecret' => 'CLIENT_SECRET',
-                // ],
+                'twitter' => [
+                    'class'          => 'dektrium\user\clients\Twitter',
+                    'consumerKey'    => getenv('CONSUMER_KEY'),
+                    'consumerSecret' => getenv('CONSUMER_SECRET'),
+                ],
             ],
         ],
         'errorHandler' => [
