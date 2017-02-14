@@ -2,8 +2,6 @@
 
 namespace app\models;
 
-use Yii;
-
 /**
  * This is the model class for table "meneos".
  *
@@ -16,7 +14,7 @@ use Yii;
 class Meneo extends \yii\db\ActiveRecord
 {
     /**
-     * @inheritdoc
+     * Nombre de tabla de Meneo
      */
     public static function tableName()
     {
@@ -24,7 +22,7 @@ class Meneo extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * Reglas de Meneo
      */
     public function rules()
     {
@@ -37,7 +35,7 @@ class Meneo extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * Labels de los atributos de Meneo
      */
     public function attributeLabels()
     {

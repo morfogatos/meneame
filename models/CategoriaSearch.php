@@ -12,7 +12,7 @@ use app\models\Categoria;
 class CategoriaSearch extends Categoria
 {
     /**
-     * @inheritdoc
+     * Reglas de CategoriaSearch
      */
     public function rules()
     {
@@ -23,7 +23,7 @@ class CategoriaSearch extends Categoria
     }
 
     /**
-     * @inheritdoc
+     * Escenarios de CategoriaSearch
      */
     public function scenarios()
     {

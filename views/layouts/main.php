@@ -11,7 +11,7 @@ use yii\widgets\ActiveForm;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
-$url = Url::to(['entradas/search-ajax']);
+$url = Url::to(['/entradas/search-ajax']);
 $js = <<<EOT
     $('#search').on('keyup focus', function () {
         $.ajax({

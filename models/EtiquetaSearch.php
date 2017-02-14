@@ -2,9 +2,9 @@
 
 namespace app\models;
 
+use app\models\Etiqueta;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Etiqueta;
 
 /**
  * EtiquetaSearch represents the model behind the search form about `app\models\Etiqueta`.
@@ -12,7 +12,7 @@ use app\models\Etiqueta;
 class EtiquetaSearch extends Etiqueta
 {
     /**
-     * @inheritdoc
+     * Reglas de EtiquetaSearch
      */
     public function rules()
     {
@@ -23,7 +23,7 @@ class EtiquetaSearch extends Etiqueta
     }
 
     /**
-     * @inheritdoc
+     * Escenarios de EtiquetaSearch
      */
     public function scenarios()
     {

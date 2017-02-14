@@ -3,8 +3,6 @@
 namespace app\models;
 
 /**
- * This is the model class for table "entradas_etiquetas".
- *
  * @property integer $entrada_id
  * @property integer $etiqueta_id
  *
@@ -14,7 +12,7 @@ namespace app\models;
 class EntradaEtiqueta extends \yii\db\ActiveRecord
 {
     /**
-     * @inheritdoc
+     * Nombre de tabla de EntradaEtiqueta
      */
     public static function tableName()
     {
@@ -22,7 +20,7 @@ class EntradaEtiqueta extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * Reglas de EntradaEtiqueta
      */
     public function rules()
     {

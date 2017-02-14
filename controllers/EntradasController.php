@@ -63,14 +63,14 @@ class EntradasController extends Controller
 
     /**
      * Lista todos los modelos Entrada.
-     * @param Integer $categoria_id
-     * @param Integer $etiqueta_id
+     * @param Integer $categoriaID
+     * @param Integer $etiquetaID
      * @return mixed
      */
-    public function actionIndex($categoria_id = null, $etiqueta_id = null)
+    public function actionIndex($categoriaID = null, $etiquetaID = null)
     {
-        if ($etiqueta_id != null) {
-            $etiqueta = Etiqueta::find()->where(['id' => $etiqueta_id])->one();
+        if ($etiquetaID != null) {
+            $etiqueta = Etiqueta::find()->where(['id' => $etiquetaID])->one();
 
             $dataProvider = new ActiveDataProvider([
                 'query' => $etiqueta->getEntradas(),
@@ -78,9 +78,9 @@ class EntradasController extends Controller
                     'pageSize' => 10,
                 ]
             ]);
-        } elseif ($categoria_id != null) {
+        } elseif ($categoriaID != null) {
             $dataProvider = new ActiveDataProvider([
-                'query' => Entrada::find()->where(['categoria_id' => $categoria_id])->orderBy(['created_at' => SORT_DESC]),
+                'query' => Entrada::find()->where(['categoriaID' => $categoriaID])->orderBy(['created_at' => SORT_DESC]),
                 'pagination' => [
                     'pageSize' => 10,
                 ]
@@ -101,9 +101,8 @@ class EntradasController extends Controller
     }
 
     /**
-     * Realiza el meneo a la entrada
-     * @param  [type] $id [description]
-     * @return [type]     [description]
+     * [actionMeneo description]
+     * @return [type] [description]
      */
     public function actionMeneo()
     {

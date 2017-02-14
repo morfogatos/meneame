@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$url = Url::to(['entrada/meneo']);
+$url = Url::to(['/entrada/meneo']);
 $js = <<<EOT
     $('.menear' + '$model->id').on("click", function() {
         $.ajax({

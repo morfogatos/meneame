@@ -12,7 +12,7 @@ use app\models\Entrada;
 class EntradaSearch extends Entrada
 {
     /**
-     * @inheritdoc
+     * Reglas de EntradaSearch
      */
     public function rules()
     {
@@ -23,7 +23,7 @@ class EntradaSearch extends Entrada
     }
 
     /**
-     * @inheritdoc
+     * Escenarios de EntradaSearch
      */
     public function scenarios()
     {
